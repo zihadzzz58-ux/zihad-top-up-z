@@ -40,8 +40,8 @@
 
         <label for="payment">পেমেন্ট মেথড:</label>
         <select id="payment">
-            <option value="bKash">bKash Personal (01700000000)</option>
-            <option value="Nagad">Nagad Personal (01700000000)</option>
+            <option value="bKash Personal (01913147721)">bKash Personal (01913147721)</option>
+            <option value="Nagad Personal (01913147721)">Nagad Personal (01913147721)</option>
         </select>
 
         <label for="trx">Transaction ID (TrxID):</label>
@@ -54,7 +54,33 @@
 <script>
     document.getElementById('topupForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('আপনার অর্ডারটি সফলভাবে জমা হয়েছে! কিছুক্ষণের মধ্যে আপনার একাউন্টে ডায়মন্ড যোগ হয়ে যাবে।');
+
+        const botToken = "8553398331:AAF6Me4uzBwb2gnPXf1oScQxXlEYFK9rGTY"; 
+        const chatId = "8001073758";
+
+        const uid = document.getElementById('uid').value;
+        const packageSelected = document.getElementById('package').value;
+        const payment = document.getElementById('payment').value;
+        const trx = document.getElementById('trx').value;
+
+        const message = `🛒 *নতুন টপ-আপ অর্ডার এসেছে!* \n\n🆔 *Player UID:* ${uid}\n💎 *Package:* ${packageSelected}\n💳 *Payment Method:* ${payment}\n🧾 *TrxID:* ${trx}`;
+
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => {
+            alert('আপনার অর্ডারটি সফলভাবে জমা হয়েছে! কিছুক্ষণের মধ্যে আপনার একাউন্টে ডায়মন্ড যোগ হয়ে যাবে।');
+            document.getElementById('topupForm').reset();
+        })
+        .catch(error => {
+            alert('অর্ডার সাবমিট করতে সমস্যা হয়েছে, আবার চেষ্টা করুন।');
+        });
     });
 </script>
 
