@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zihad Top Up BD</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #121212; color: #fff; margin: 0; padding: 20px; }
+        .container { max-width: 450px; margin: 0 auto; background: #1e1e1e; padding: 20px; border-radius: 12px; border: 1px solid #ff9900; box-shadow: 0 0 15px rgba(255, 153, 0, 0.3); }
+        h2 { text-align: center; color: #ff9900; margin-bottom: 20px; }
+        label { font-weight: bold; display: block; margin-top: 15px; color: #ddd; }
+        input, select { width: 100%; padding: 12px; margin-top: 5px; border-radius: 6px; border: 1px solid #444; background: #2a2a2a; color: #fff; box-sizing: border-box; font-size: 14px; }
+        input:focus, select:focus { border-color: #ff9900; outline: none; }
+        .btn { width: 100%; padding: 14px; background: #ff9900; color: #000; font-weight: bold; border: none; border-radius: 6px; margin-top: 25px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        .btn:hover { background: #e68a00; }
+        .notice { background: #332b00; border-left: 4px solid #ff9900; padding: 10px; margin-bottom: 15px; font-size: 13px; color: #ffeb3b; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🔥 Zihad Top Up BD 🔥</h2>
+    
+    <div class="notice">
+        ⚠️ টাকা পাঠানোর পর অবশ্যই সঠিক Transaction ID (TrxID) দিন।
+    </div>
+
+    <form id="topupForm">
+        <label for="uid">Player ID (UID):</label>
+        <input type="number" id="uid" placeholder="আপনার ফ্রি ফায়ার UID দিন" required>
+
+        <label for="package">ডায়মন্ড প্যাকেজ সিলেক্ট করুন:</label>
+        <select id="package">
+            <option value="115 Diamond - 80 Tk">115 Diamond - 80 Tk</option>
+            <option value="240 Diamond - 160 Tk">240 Diamond - 160 Tk</option>
+            <option value="610 Diamond - 400 Tk">610 Diamond - 400 Tk</option>
+            <option value="Weekly Membership - 160 Tk">Weekly Membership - 160 Tk</option>
+            <option value="Monthly Membership - 800 Tk">Monthly Membership - 800 Tk</option>
+        </select>
+
+        <label for="payment">পেমেন্ট মেথড:</label>
+        <select id="payment">
+            <option value="bKash">bKash Personal (01700000000)</option>
+            <option value="Nagad">Nagad Personal (01700000000)</option>
+        </select>
+
+        <label for="trx">Transaction ID (TrxID):</label>
+        <input type="text" id="trx" placeholder="টাকা পাঠানোর পর TrxID লিখুন" required>
+
+        <button type="submit" class="btn">অর্ডার কনফার্ম করুন</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('topupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('আপনার অর্ডারটি সফলভাবে জমা হয়েছে! কিছুক্ষণের মধ্যে আপনার একাউন্টে ডায়মন্ড যোগ হয়ে যাবে।');
+    });
+</script>
+
+</body>
+</html>
